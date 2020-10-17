@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Deployment Process
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Start CI
         uses: actions/checkout@v2
