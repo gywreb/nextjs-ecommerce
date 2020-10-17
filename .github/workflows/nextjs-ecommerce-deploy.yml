@@ -22,16 +22,16 @@ jobs:
           cmd: install
       - name: Build App
         uses: borales/actions-yarn@v2.0.0
+        env:
+          NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
         with:
           cmd: build # will run `yarn build` command
-          env:
-            NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
       - name: Export Deployment Files
         uses: borales/actions-yarn@v2.0.0
+        env:
+          NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
         with:
           cmd: export
-          env:
-            NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
       - run: sudo touch ./out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
