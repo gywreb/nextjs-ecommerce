@@ -33,7 +33,7 @@ Router.events.on("routeChangeError", () => {
   NProgress.done();
 });
 
-const prefix = "/nextjs-ecommerce";
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {

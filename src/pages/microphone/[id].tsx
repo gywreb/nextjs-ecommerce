@@ -12,7 +12,7 @@ import { openDB } from "../../utils/openDB";
 
 export type MicrophoneProps = Microphone;
 
-const prefix = "/nextjs-ecommerce";
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const MicrophoneDetail: NextPage<MicrophoneProps> = (props) => {
   const { brand, model, price, imageUrl } = props;

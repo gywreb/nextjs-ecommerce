@@ -20,7 +20,7 @@ export interface HomePageProps {
   numberOfPages: undefined;
 }
 
-const prefix = "/nextjs-ecommerce";
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH;
 
 const HomePage: NextPage<HomePageProps> = ({ microphones, numberOfPages }) => {
   const router = useRouter();

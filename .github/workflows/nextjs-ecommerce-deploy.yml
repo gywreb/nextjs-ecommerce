@@ -13,6 +13,8 @@ jobs:
   build:
     name: Deployment Process
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
     steps:
       - name: Start CI
         uses: actions/checkout@v2
@@ -28,7 +30,6 @@ jobs:
         uses: borales/actions-yarn@v2.0.0
         with:
           cmd: export
-      - name: Serve _next
         run: sudo touch ./out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
