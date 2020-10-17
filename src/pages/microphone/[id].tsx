@@ -12,6 +12,8 @@ import { openDB } from "../../utils/openDB";
 
 export type MicrophoneProps = Microphone;
 
+const prefix = "/nextjs-ecommerce";
+
 const MicrophoneDetail: NextPage<MicrophoneProps> = (props) => {
   const { brand, model, price, imageUrl } = props;
   const router = useRouter();
@@ -31,7 +33,7 @@ const MicrophoneDetail: NextPage<MicrophoneProps> = (props) => {
                   >
                     <img
                       style={{ width: "50%" }}
-                      src={imageUrl}
+                      src={prefix + imageUrl}
                       alt="microphoneImg"
                     />
                   </Box>
