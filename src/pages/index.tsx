@@ -1,8 +1,5 @@
-import { GetStaticProps, GetStaticPropsContext, NextPage } from "next";
-import Link from "next/link";
-import { Microphone } from "../../model/Microphone";
-import { openDB } from "../utils/openDB";
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -10,16 +7,20 @@ import {
   Container,
   Grid,
   Typography,
-  Box,
 } from "@material-ui/core";
 import { Pagination, PaginationItem } from "@material-ui/lab";
+import { GetStaticProps, GetStaticPropsContext, NextPage } from "next";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import Loader from "react-loader-spinner";
+import { Microphone } from "../../model/Microphone";
+import { openDB } from "../utils/openDB";
 
 export interface HomePageProps {
   microphones: Microphone[];
   numberOfPages: undefined;
 }
+
+const prefix = "/nextjs-ecommerce";
 
 const HomePage: NextPage<HomePageProps> = ({ microphones, numberOfPages }) => {
   const router = useRouter();
@@ -34,7 +35,7 @@ const HomePage: NextPage<HomePageProps> = ({ microphones, numberOfPages }) => {
               <Link href="/microphone/[id]" as={`/microphone/${id}`}>
                 <CardActionArea>
                   <CardMedia
-                    image={imageUrl}
+                    image={prefix + imageUrl}
                     title="microphone"
                     style={{ height: "300px" }}
                   />

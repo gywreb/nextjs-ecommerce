@@ -5,29 +5,33 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-    name: this app deploy
+    name: Deployment Process
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install 
-    - uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: build # will run `yarn build` command
-    - uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: export
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3.6.2
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: out # The folder the action should deploy.
-        CLEAN: true # Automatically remove deleted files from the deploy branch
+      - name: Start CI
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Build App
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build # will run `yarn build` command
+      - name: Export Deployment Files
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: export
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: out # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
