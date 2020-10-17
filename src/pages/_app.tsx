@@ -33,6 +33,8 @@ Router.events.on("routeChangeError", () => {
   NProgress.done();
 });
 
+const prefix = "/nextjs-ecommerce";
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -45,6 +47,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
       <Head>
+        <link
+          rel="shortcut icon"
+          href={prefix + "/favicon.ico"}
+          type="image/x-icon"
+        />
         <title>Nextjs Demo</title>
         <meta
           name="viewport"
