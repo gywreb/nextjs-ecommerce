@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps = async (
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const db = await openDB();
-  const microphones = await db.all("SELECT * FROM Microphone LIMIT 5");
+  const microphones = await db.all("SELECT * FROM Microphone");
   const paths = microphones.map((microphone) => {
     return {
       params: {
