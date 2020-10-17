@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Deployment Process
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Start CI
         uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
         with:
           cmd: export
       - name: Serve _next
-        run: touch ./out/.nojekyll
+        run: sudo touch ./out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
