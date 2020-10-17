@@ -10,11 +10,11 @@ on:
     branches: [master]
 
 jobs:
-  env:
-    NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
   build:
     name: Deployment Process
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_PATH: "/nextjs-ecommerce"
     steps:
       - name: Start CI
         uses: actions/checkout@v2
